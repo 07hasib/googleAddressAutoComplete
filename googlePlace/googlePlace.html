@@ -1,0 +1,100 @@
+<template>
+    <lightning-card variant="Narrow" title="Google Auto Complete Address" icon-name="standard:account" class="rounded-form card-container">
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                class="slds-p-bottom_small search-input rounded-input" 
+                type="text" 
+                variant="standard" 
+                value={selectedAdd}
+                label="Search Address" 
+                placeholder="Search..." 
+                onchange={handleSearch}>
+            </lightning-input>
+
+            <div if:true={searchText}>
+                <div class="address-recommendations" role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid recommendation-list" role="presentation">
+                        <template for:each={addressRecommendations} for:item="addressRecommendation">
+                            <li key={addressRecommendation} 
+                                role="presentation" 
+                                onclick={handleAddressRecommendationSelect}
+                                data-value={addressRecommendation.place_id}
+                                class="slds-listbox__item recommendation-item">
+                                <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                    <span class="slds-media__body slds-m-left_xx-small">
+                                        <div class="slds-grid recommendation-row">
+                                            <div class="slds-size_1-of-10 icon-container">
+                                                <lightning-icon 
+                                                    size="small" 
+                                                    icon-name="utility:checkin"
+                                                    class="location-icon" 
+                                                    alternative-text="Location">
+                                                </lightning-icon>
+                                            </div>
+                                            <div class="slds-m-left_medium slds-col slds-size_9-of-10 address-text">
+                                                <span class="main-text"><b>{addressRecommendation.main_text}</b></span>
+                                                <span class="secondary-text">{addressRecommendation.secondary_text}</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+
+            <div if:true={selectedAddress} class="selected-address-container">
+                <lightning-input 
+                    class="slds-p-bottom_small rounded-input" 
+                    type="text" 
+                    variant="standard" 
+                    label="Street"
+                    value={selectedAddress.street}>
+                </lightning-input>
+                
+                <lightning-layout multiple-rows="false" class="slds-gutters_small">
+                    <lightning-layout-item size="6" padding="horizontal-small">
+                        <lightning-input 
+                            class="slds-p-bottom_small rounded-input" 
+                            type="text" 
+                            variant="standard" 
+                            label="City"
+                            value={selectedAddress.city}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="horizontal-small">
+                        <lightning-input 
+                            class="slds-p-bottom_small rounded-input" 
+                            type="text" 
+                            variant="standard" 
+                            label="State"
+                            value={selectedAddress.state}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+                
+                <lightning-layout multiple-rows="false" class="slds-gutters_small">
+                    <lightning-layout-item size="6" padding="horizontal-small">
+                        <lightning-input 
+                            class="slds-p-bottom_small rounded-input" 
+                            type="text" 
+                            variant="standard" 
+                            label="Postal Code"
+                            value={selectedAddress.postalCode}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="horizontal-small">
+                        <lightning-input 
+                            class="slds-p-bottom_small rounded-input" 
+                            type="text" 
+                            variant="standard" 
+                            label="Country"
+                            value={selectedAddress.country}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </div>
+    </lightning-card>
+</template>

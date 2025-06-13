@@ -1,0 +1,121 @@
+.rounded-form .slds-input,
+.rounded-form lightning-input,
+.rounded-form lightning-textarea,
+.rounded-form lightning-combobox {
+    --slds-c-input-radius-border: 20px;
+    --slds-c-input-shadow-focus: 0 0 3px #0070d2;
+}
+
+.rounded-form lightning-button button {
+    border-radius: 20px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.card-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container .slds-card__header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #f3f4f6;
+}
+
+.form-header {
+    color: #0070d2;
+    font-weight: 600;
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 0.75rem;
+}
+
+.input-field {
+    margin-bottom: 0.75rem;
+}
+
+/* Custom styles for focus state */
+.rounded-form .slds-input:focus,
+.rounded-form lightning-input:focus-within {
+    transition: all 0.2s ease;
+}
+
+/* Search input styling */
+.search-input {
+    margin-bottom: 0.75rem;
+}
+
+.search-input input {
+    font-size: 1rem;
+}
+
+/* Recommendation list styling */
+.recommendation-list {
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.recommendation-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #f3f3f3;
+    transition: background-color 0.2s ease;
+}
+
+.recommendation-item:hover {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+
+.recommendation-item:last-child {
+    border-bottom: none;
+}
+
+.recommendation-row {
+    padding: 0.25rem 0;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-text {
+    font-size: 0.9rem;
+    color: #16325c;
+}
+
+.secondary-text {
+    font-size: 0.8rem;
+    color: #706e6b;
+    margin-top: 0.25rem;
+}
+
+/* Selected address container */
+.selected-address-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lightning icon styling */
+.location-icon {
+    --sds-c-icon-color-foreground-default: #0070d2;
+}
