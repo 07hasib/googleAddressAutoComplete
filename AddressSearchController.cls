@@ -1,7 +1,8 @@
+//@author: Mohammad Hasib
 public class AddressSearchController {
+    public static final String apiKey = 'YOUR-API-KEY';
     @AuraEnabled
     public static String getAddressRecommendations(String searchText){
-        String apiKey = 'AIzaSyB8zpbu5ujhRbTm2QatErXI7O0GE-Vivws';
         String result = null;
         try {
             if (searchText != null) {
@@ -32,7 +33,6 @@ public class AddressSearchController {
     
     @AuraEnabled
     public static String getAddressDetails(String placeId) {
-        String apiKey = 'AIzaSyB8zpbu5ujhRbTm2QatErXI7O0GE-Vivws';
         String result = null;
         
         try {
